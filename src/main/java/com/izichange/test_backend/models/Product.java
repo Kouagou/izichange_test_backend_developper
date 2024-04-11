@@ -1,10 +1,13 @@
 package com.izichange.test_backend.models;
 
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +20,11 @@ public class Product {
     private Float priceHt;
 
     @Column(nullable = false)
+    @CreatedDate
     private Date creationDate;
 
     @Column
+    @LastModifiedDate
     private Date dateUpdate;
 
     public void setId(Long id) {
