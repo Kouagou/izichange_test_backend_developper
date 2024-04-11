@@ -1,9 +1,14 @@
 package com.izichange.test_backend.models;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+
 public class ProductDto {
 
+    @NotEmpty(message = "Le nom est requis")
     private String name;
 
+    @Min(0)
     private Float priceHt;
 
     public String getName() {
